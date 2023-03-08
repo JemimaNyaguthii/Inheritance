@@ -6,6 +6,7 @@ fun main(args: Array<String>) {
     var noah=Bus("noah","bus","blue",54)
     println(noah.maxTripFare(100.0))
     println(noah.calculateParkingFees(3))
+    noah.identity()
 }
 open class Vehicle(var make:String,var model:String,var color:String,var capacity:Int) {
     fun carry(people: Int) {
@@ -16,7 +17,7 @@ open class Vehicle(var make:String,var model:String,var color:String,var capacit
             println("Over capacity by $x people")
         }
     }
-    fun identity() {
+    open fun identity() {
         println("I am a $color $make $model ")
     }
     open fun calculateParkingFees(hours: Int): Int {
@@ -53,6 +54,12 @@ class Car( make:String,model:String,color:String, capacity:Int):Vehicle(make,mod
 //            return super.calculateParkingFees(hours)
             var x=hours *capacity
             return x
+
+        }
+
+        override fun identity() {
+//            super.identity()
+            println("I am $color $make $model ")
 
         }
 
